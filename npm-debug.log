@@ -1,0 +1,172 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+info using npm@1.1.0-beta-10
+info using node@v0.6.7
+verbose config file /Users/joe/.npmrc
+verbose config file /usr/local/etc/npmrc
+verbose config file /usr/local/lib/node_modules/npm/npmrc
+verbose caching /Users/joe/Code/nodekc/package.json
+verbose loadDefaults node-kc@0.0.1
+verbose where, deps [ '/Users/joe/Code/nodekc', [ 'express' ] ]
+verbose from cache /Users/joe/Code/nodekc/package.json
+info preinstall node-kc@0.0.1
+verbose from cache /Users/joe/Code/nodekc/package.json
+verbose into /Users/joe/Code/nodekc [ 'express@2.2.0' ]
+verbose cache add express@2.2.0
+verbose cache add [ 'express@2.2.0', null ]
+silly cache add: name, spec, args [ undefined, 'express@2.2.0', [ 'express@2.2.0', null ] ]
+verbose parsed url { pathname: 'express@2.2.0',
+verbose parsed url   path: 'express@2.2.0',
+verbose parsed url   href: 'express@2.2.0' }
+silly cache add: name, spec, args [ 'express', '2.2.0', [ 'express', '2.2.0' ] ]
+verbose parsed url { pathname: '2.2.0', path: '2.2.0', href: '2.2.0' }
+verbose addNamed [ 'express', '2.2.0' ]
+verbose addNamed [ '2.2.0', '2.2.0' ]
+verbose raw, before any munging express/2.2.0
+verbose url resolving [ 'https://registry.npmjs.org/', './express/2.2.0' ]
+verbose url resolved https://registry.npmjs.org/express/2.2.0
+http GET https://registry.npmjs.org/express/2.2.0
+http 200 https://registry.npmjs.org/express/2.2.0
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"BRKKGA5ORUS7U5UFNXBK0WSSE"',
+silly get cb     date: 'Sun, 22 Jan 2012 02:45:57 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '1008' } ]
+verbose mkdir (expected) error ENOENT, no such file or directory '/Users/joe/.npm/express/2.2.0'
+verbose mkdir done: /Users/joe/.npm/express/2.2.0 755
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8r-v83.6.6.15-darwin-x64-11.2.0',
+verbose bin dist   { shasum: 'ab38a7eaad67a1c28495021a798d234086d73dea',
+verbose bin dist     tarball: 'http://registry.npmjs.org/express/-/express-2.2.0.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/express/-/express-2.2.0.tgz',
+verbose addRemoteTarball   'ab38a7eaad67a1c28495021a798d234086d73dea' ]
+verbose mkdir (expected) error ENOENT, no such file or directory '/var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244'
+verbose mkdir (expected) error ENOENT, no such file or directory '/var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284'
+verbose mkdir done: /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284 755
+verbose fetch to /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/tmp.tgz
+http GET https://registry.npmjs.org/express/-/express-2.2.0.tgz
+http 200 https://registry.npmjs.org/express/-/express-2.2.0.tgz
+silly updated sha bytes 25441
+info shasum ab38a7eaad67a1c28495021a798d234086d73dea
+info shasum /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/tmp.tgz
+verbose mkdir (expected) error ENOENT, no such file or directory '/var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm'
+verbose mkdir done: /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/package
+silly gunzTarPerm modes [ '755', '644' ]
+silly afterUntar undefined
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/.npmignore
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/History.md
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/index.js
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/LICENSE
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/Makefile
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/package.json
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/Readme.md
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/bin
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/bin/express
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/lib
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/lib/express.js
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/lib/http.js
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/lib/https.js
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/lib/request.js
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/lib/response.js
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/lib/utils.js
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/lib/view.js
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/lib/view
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/lib/view/partial.js
+silly asyncMap in gTP /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package/lib/view/view.js
+verbose gunzed /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package
+verbose rm'ed /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/package
+verbose renamed [ '/var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/___package.npm/package',
+verbose renamed   '/var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/package' ]
+verbose caching /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/package/package.json
+verbose loadDefaults express@2.2.0
+verbose tarball contents [ 'package', 'tmp.tgz' ]
+verbose from cache /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/package/package.json
+verbose pack /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/package
+verbose pack /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/package /Users/joe/.npm/express/2.2.0/package.tgz
+silly makeList /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/package
+silly dir, dirLen [ '/var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/package',
+silly dir, dirLen   109 ]
+verbose tarball /Users/joe/.npm/express/2.2.0/package.tgz
+verbose parent /var/folders/mf/yjspv81s5vng6cgk3c_7vp680000gp/T/npm-1327200357244/1327200357244-0.20377970463596284/package
+verbose mkdir (expected) error ENOENT, no such file or directory '/Users/joe/.npm/express/2.2.0/___package.npm'
+verbose mkdir done: /Users/joe/.npm/express/2.2.0/___package.npm 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /Users/joe/.npm/express/2.2.0/package
+silly gunzTarPerm modes [ '755', '644' ]
+silly afterUntar undefined
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/.npmignore
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/History.md
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/index.js
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/LICENSE
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/Makefile
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/package.json
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/Readme.md
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/bin
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/bin/express
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/lib
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/lib/express.js
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/lib/http.js
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/lib/https.js
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/lib/request.js
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/lib/response.js
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/lib/utils.js
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/lib/view.js
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/lib/view
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/lib/view/partial.js
+silly asyncMap in gTP /Users/joe/.npm/express/2.2.0/___package.npm/package/lib/view/view.js
+verbose gunzed /Users/joe/.npm/express/2.2.0/___package.npm/package
+verbose rm'ed /Users/joe/.npm/express/2.2.0/package
+verbose renamed [ '/Users/joe/.npm/express/2.2.0/___package.npm/package',
+verbose renamed   '/Users/joe/.npm/express/2.2.0/package' ]
+verbose caching /Users/joe/.npm/express/2.2.0/package/package.json
+verbose loadDefaults express@2.2.0
+silly updated sha bytes 25600
+info shasum c54d571ca48ad01eaffe90cdfa230215a65171d9
+info shasum /Users/joe/.npm/express/2.2.0/package.tgz
+verbose from cache /Users/joe/.npm/express/2.2.0/package/package.json
+verbose chmod /Users/joe/.npm/express/2.2.0/package.tgz 644
+verbose chown [ '/Users/joe/.npm/express/2.2.0/package.tgz', 502, 20 ]
+silly resolved [ { name: 'express',
+silly resolved     description: 'Sinatra inspired web development framework',
+silly resolved     version: '2.2.0',
+silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+silly resolved     contributors: 
+silly resolved      [ { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+silly resolved        { name: 'Aaron Heckmann',
+silly resolved          email: 'aaron.heckmann+github@gmail.com' },
+silly resolved        { name: 'Ciaran Jessup', email: 'ciaranj@gmail.com' },
+silly resolved        { name: 'Guillermo Rauch', email: 'rauchg@gmail.com' } ],
+silly resolved     dependencies: { connect: '>= 1.2.0 < 2.0.0', mime: '>= 0.0.1', qs: '>= 0.0.6' },
+silly resolved     keywords: [ 'framework', 'sinatra', 'web', 'rest', 'restful' ],
+silly resolved     repository: { type: 'git', url: 'git://github.com/visionmedia/express.git' },
+silly resolved     main: 'index',
+silly resolved     bin: { express: './bin/express' },
+silly resolved     engines: { node: '>= 0.4.1 < 0.5.0' },
+silly resolved     _id: 'express@2.2.0',
+silly resolved     devDependencies: {},
+silly resolved     _engineSupported: false,
+silly resolved     _npmVersion: '1.1.0-beta-10',
+silly resolved     _nodeVersion: 'v0.6.7',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: 'c54d571ca48ad01eaffe90cdfa230215a65171d9' } } ]
+info into /Users/joe/Code/nodekc express@2.2.0
+info installOne express@2.2.0
+verbose installOne cb express@2.2.0
+ERR! Unsupported
+ERR! Not compatible with your version of node/npm: express@2.2.0
+ERR! Required: {"node":">= 0.4.1 < 0.5.0"}
+ERR! Actual:   {"npm":"1.1.0-beta-10","node":"0.6.7"}
+ERR! 
+ERR! System Darwin 11.2.0
+ERR! command "node" "/usr/local/bin/npm" "install"
+ERR! cwd /Users/joe/Code/nodekc
+ERR! node -v v0.6.7
+ERR! npm -v 1.1.0-beta-10
+ERR! code ENOTSUP
+ERR! message Unsupported
+verbose exit [ 1, true ]
