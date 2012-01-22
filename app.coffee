@@ -14,7 +14,8 @@ app.configure 'production', () ->
 app.set 'views', path.join(__dirname, '/src/views')
 app.set 'view engine', 'jade'
 
-app.get '/', null, view.plug
+app.get '/', (req, res) ->
+  res.render 'plug', res.data
 
 app.listen port
 
