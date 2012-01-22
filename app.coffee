@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-var express = require 'express',
-	app = express.createServer(),
-	port = process.env.PORT || 3000;
+express = require 'express'
+app = express.createServer()
+port = process.env.PORT || 3000
 
 app.configure 'production', () ->
 	app.use(express.logger({format: ':method :url'}))
