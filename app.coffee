@@ -7,9 +7,9 @@ view = require './src/view'
 path = require 'path'
 
 app.configure 'production', () ->
-	app.use(express.logger({format: ':method :url'}))
-	app.use(express.static(path.join(__dirname, 'src/public')))	
-	app.use(stylus.middleware({src: path.join(__dirname, 'src/public')}))
+  app.use(express.logger({format: ':method :url'}))
+  app.use(express.static(path.join(__dirname, 'src/public'))) 
+  app.use(stylus.middleware({src: path.join(__dirname, 'src/public')}))
 
 app.set 'views', path.join(__dirname, '/src/views')
 app.set 'view engine', 'jade'
