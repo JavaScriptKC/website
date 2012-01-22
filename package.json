@@ -3,7 +3,9 @@
    "version": "0.0.1",
    "dependencies": {
       "express": "2.2.0",
-      "coffee-script": "latest"
+      "coffee-script": "latest",
+      "jade": "~v0.20.0",
+      "stylus": "~v0.22.5"
    }
 }
              
