@@ -3,7 +3,6 @@
 express = require 'express'
 app = express.createServer()
 port = process.env.PORT || 3000
-view = require './src/views'
 path = require 'path'
 
 app.configure 'production', () ->
