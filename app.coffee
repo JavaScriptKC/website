@@ -4,6 +4,7 @@ express = require 'express'
 app = express.createServer()
 port = process.env.PORT || 3000
 path = require 'path'
+stylus = require 'stylus'
 
 app.configure 'production', () ->
   app.use(express.logger({format: ':method :url'}))
