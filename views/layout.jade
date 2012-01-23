@@ -21,3 +21,17 @@ html(lang="en")
       
       p site coming... for now visit the 
         a(href='http://groups.google.com/group/kc-nodejs',  title='NodeKC Google Group') google group
+      ul#panels
+        li.panel
+          h2 Recent Group Messages
+          ul
+            each item in messages
+              li 
+                a(href=item.guid)#{item.title}
+                p.teaser #{item.desc}
+        li.panel
+          h2 Twitter Mentions
+            p None yet        
+        li.panel
+          h2 Members
+            p Unknown

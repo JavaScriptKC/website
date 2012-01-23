@@ -5,6 +5,7 @@ app = express.createServer()
 port = process.env.PORT || 3000
 path = require 'path'
 stylus = require 'stylus'
+data = require './data'
 
 app.configure 'development', () ->
   app.use(stylus.middleware({src: path.join(__dirname, '/public')}))
@@ -19,7 +20,7 @@ app.configure 'production', () ->
 app.set 'views', path.join(__dirname, '/views')
 app.set 'view engine', 'jade'
 
-app.get '/', (req, res) ->
+app.get '/', data.loadMessages, (req, res) ->
   res.render 'plug', res.data
 
 app.listen port

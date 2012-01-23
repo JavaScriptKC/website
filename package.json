@@ -5,7 +5,9 @@
       "express": "2.2.0",
       "coffee-script": "latest",
       "jade": "~v0.20.0",
-      "stylus": "~v0.22.5"
+      "stylus": "~v0.22.5",
+      "easysax": "latest",
+      "restler": "latest"
    }
 }
              
