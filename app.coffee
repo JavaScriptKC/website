@@ -6,10 +6,15 @@ port = process.env.PORT || 3000
 path = require 'path'
 stylus = require 'stylus'
 
-app.configure 'production', () ->
+app.configure 'development', () ->
   app.use(express.logger({format: ':method :url'}))
   app.use(express.static(path.join(__dirname, 'src/public'))) 
   app.use(stylus.middleware({src: path.join(__dirname, 'src/public')}))
+
+app.configure 'production', () ->
+  app.use(express.logger({format: ':method :url'}))
+  app.use(express.static(path.join(__dirname, 'src/public'))) 
+  app.use(stylus.middleware({src: path.join(__dirname, 'src/public'), compress: true}))
 
 app.set 'views', path.join(__dirname, '/src/views')
 app.set 'view engine', 'jade'
