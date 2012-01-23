@@ -8,15 +8,15 @@ stylus = require 'stylus'
 
 app.configure 'development', () ->
   app.use(express.logger({format: ':method :url'}))
-  app.use(express.static(path.join(__dirname, 'src/public'))) 
-  app.use(stylus.middleware({src: path.join(__dirname, 'src/public')}))
+  app.use(express.static(path.join(__dirname, 'public'))) 
+  app.use(stylus.middleware({src: path.join(__dirname, 'public')}))
 
 app.configure 'production', () ->
   app.use(express.logger({format: ':method :url'}))
-  app.use(express.static(path.join(__dirname, 'src/public'))) 
-  app.use(stylus.middleware({src: path.join(__dirname, 'src/public'), compress: true}))
+  app.use(express.static(path.join(__dirname, 'public'))) 
+  app.use(stylus.middleware({src: path.join(__dirname, 'public'), compress: true  }))
 
-app.set 'views', path.join(__dirname, '/src/views')
+app.set 'views', path.join(__dirname, 'views')
 app.set 'view engine', 'jade'
 
 app.get '/', (req, res) ->
