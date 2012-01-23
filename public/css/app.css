@@ -1,0 +1,29 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: transparent url("images/bgpattern.png");
+  height: 100%;
+}
+a {
+  color: #73a53e;
+}
+#wrapper {
+  width: 1024px;
+  margin: 0 auto;
+  height: 100%;
+  font-weight: bold;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 2em;
+  text-align: center;
+}
+#wrapper h1 {
+  text-shadow: 0.1em 0.1em 0.2em #000;
+  padding-top: 1em;
+}
+#wrapper p {
+  font-size: 0.8em;
+  padding-top: 1em;
+}
