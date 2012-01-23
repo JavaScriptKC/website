@@ -40,6 +40,7 @@ a {
   margin-top: 15px;
   margin-left: 10px;
   height: 160px;
+  overflow: auto;
 }
 #panels li.panel ul {
   padding: 0;
@@ -49,12 +50,22 @@ a {
 #panels li.panel h2 {
   font-size: 0.6em;
 }
-#panels li.panel a {
+#panels li.panel a.message {
   font-size: 0.5em;
 }
-#panels li.panel p {
+#panels li.panel p.teaser {
   font-size: 0.5em;
   margin: 0;
   text-indent: 0.4em;
   padding: 0;
+}
+#panels li.panel.tweets p.tweet {
+  font-size: 1em;
+}
+#panels li.panel.tweets span {
+  font-size: 0.5em;
+  color: #ccc;
+  margin-bottom: 5px;
+  margin-left: 3px;
+  text-decoration: underline;
 }
