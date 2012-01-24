@@ -1,7 +1,7 @@
 !!! 5
 html(lang="en")
   title NodeKC - Kansas City's Node.js user group
-  
+
   script
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-27907751-4']);
@@ -17,27 +17,28 @@ html(lang="en")
 
   body
     #wrapper
-      h1 Welcome to NodeKC!
-      
-      p site coming... for now visit the 
-        a(href='http://groups.google.com/group/kc-nodejs',  title='NodeKC Google Group') google group
+      h1 NodeKC
+
+      p site coming&hellip; for now visit the
+        a(href='http://groups.google.com/group/kc-nodejs',  title='NodeKC Google Group')
+          | google group
       ul#panels
         li.panel
           h2 Recent Group Messages
           ul
             each item in messages
-              li 
+              li
                 a.message(href=item.guid)#{item.title}
                 p.teaser #{item.desc}
         li.panel.tweets
-          h2 Tweets 
+          h2 Tweets
             a(href='http://twitter.com/nodekc') @nodekc
-            
+
             ul
               each item in tweets.results
-                li 
-                  p.tweet #{item.text}  
-                  span #{item.created_at}      
+                li
+                  p.tweet #{item.text}
+                  span #{item.created_at}
         li.panel
           h2 Members
             p Unknown

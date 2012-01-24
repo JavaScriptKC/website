@@ -4,25 +4,29 @@ html,
   padding: 0;
 }
 body {
-  background: transparent url("images/bgpattern.png");
+  background: #46483e url("images/bgpattern.png");
   height: 100%;
 }
 a {
-  color: #73a53e;
+  color: #8cc84b;
 }
 #wrapper {
   width: 1024px;
   margin: 0 auto;
   height: 100%;
   font-weight: bold;
-  color: #fff;
-  font-family: sans-serif;
+  color: #d2d8ba;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 2em;
   text-align: center;
 }
 #wrapper h1 {
-  text-shadow: 0.1em 0.1em 0.2em #000;
-  padding-top: 1em;
+  margin: 30px 0 10px 0;
+  height: 200px;
+  max-width: 100%;
+  min-width: 900px;
+  background: url("images/nodekc-dark.png") no-repeat center center;
+  text-indent: -90000px;
 }
 #wrapper p {
   font-size: 0.8em;
