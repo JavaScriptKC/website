@@ -7,14 +7,16 @@ fetchMessages = (cb) ->
 fetchTweets = (cb) ->
   rest.get('http://search.twitter.com/search.json?q=%40nodekc').on('complete', (data) -> cb(data))
 
+fetchEvents = (cb) ->
+  rest.get('http://www.google.com/calendar/feeds/nodekc.org_e8lg6hesldeld1utui23ebpg7k%40group.calendar.google.com/public/basic').on('complete', (data) -> cb(parser(data).items))
+
 module.exports = {
   load: (keys...) ->
-    that = this
-    return (req, res, next) -> 
+    return (req, res, next) => 
       finished = []
       res.data or= {}
-      keys.forEach (key) ->
-        that[key] res.data, (k) ->
+      keys.forEach (key) =>
+        this[key] res.data, (k) ->
           finished.push k
           next() if finished.length == keys.length
           
@@ -26,4 +28,8 @@ module.exports = {
     fetchTweets (result) ->
       data.tweets = result
       cb 'tweets'
+  events: (data, cb) ->
+    fetchEvents (result) ->
+      data.events = result
+      cb 'events'
 }
