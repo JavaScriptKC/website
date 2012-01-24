@@ -19,9 +19,8 @@ html(lang="en")
     #wrapper
       h1 NodeKC
 
-      p site coming&hellip; for now visit the
-        a(href='http://groups.google.com/group/kc-nodejs',  title='NodeKC Google Group')
-          | google group
+      p= "site coming&hellip; for now visit the "
+        a(href='http://groups.google.com/group/kc-nodejs',  title='NodeKC Google Group') google group
       ul#panels
         li.panel
           h2 Recent Group Messages
@@ -43,6 +42,6 @@ html(lang="en")
           h2 Events
             ul
               each item in events
-                li 
+                li
                   a(href=item.guid)#{item.title}
                   p.teaser #{item.desc}
