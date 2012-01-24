@@ -40,5 +40,9 @@ html(lang="en")
                   p.tweet #{item.text}
                   span #{item.created_at}
         li.panel
-          h2 Members
-            p Unknown
+          h2 Events
+            ul
+              each item in events
+                li 
+                  a(href=item.guid)#{item.title}
+                  p.teaser #{item.desc}
