@@ -9,7 +9,8 @@
       "easysax": "latest",
       "restler": "latest",
       "underscore.date": "latest",
-      "date-utils": "latest"
+      "date-utils": "latest",
+      "xml2json": "latest"
    }
 }
              
