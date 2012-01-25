@@ -1,24 +1,35 @@
 parser = require 'xml2json'
 rest = require 'restler'
 date = require 'date-utils'
-_date = require 'underscore.date'
+moment = require 'moment'
+ical = require 'ical'
 
 parseFeed = (feed) ->
   JSON.parse(parser.toJson(feed)).feed.entry
 
 messageFeed = 'http://groups.google.com/group/kc-nodejs/feed/atom_v1_0_topics.xml'
-eventFeed = 'http://www.google.com/calendar/feeds/nodekc.org_e8lg6hesldeld1utui23ebpg7k%40group.calendar.google.com/public/basic'
+eventFeed = 'http://www.google.com/calendar/ical/nodekc.org_e8lg6hesldeld1utui23ebpg7k%40group.calendar.google.com/public/basic.ics'
 twitterFeed = 'http://search.twitter.com/search.json?q=%40nodekc'
 
 lastMessageFetchResult = {}
 lastEventFetchResult = {}
 lastTwitterFetchResult = {}
 
+determineDate = (start, end) ->
+  start = moment(new Date start)
+  end = moment(new Date end)
+  date = start.format('dddd, MMM, Do')
+
+  return date if start.diff(end, 'days') == -1
+
+  date + start.format(' h:mma') + " for " + start.from(end, true)
+
+  
 striphtml = (value) ->
   value.replace(/<(?:.|\n)*?>/gm, ' ')
 
 timeAgo = (date) ->
-  _date(new Date(date)).fromNow()
+  moment(new Date(date)).fromNow()
 
 formatContent = (content) ->
   content = striphtml(content).trim()
@@ -61,16 +72,16 @@ fetchEvents = (cb) ->
   if lastEventFetchResult.on? and lastEventFetchResult.on > (new Date).addMinutes(-1)
     cb lastEventFetchResult.value
     return
+  
+  ical.fromURL eventFeed, {}, (err, calendar) ->
+      console.log calendar
+      events = for k,v of calendar
+        {title: v.summary, location: v.location, details: v.description, when: determineDate v.start, v.end }
+      console.log events
+      lastEventFetchResult.value = events
+      lastEventFetchResult.on = new Date
 
-  rest.get(eventFeed).on('complete', (data) ->  
-    events = for x in parseFeed data 
-      { title: x.title.$t, when: striphtml(x.summary.$t), url: x.id }
-    
-    lastEventFetchResult.value = events
-    lastEventFetchResult.on = new Date
-
-    cb events  
-  )
+      cb events  
 
 module.exports = {
   load: (keys...) ->
