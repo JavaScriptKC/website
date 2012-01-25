@@ -7,7 +7,9 @@
       "jade": "~v0.20.0",
       "stylus": "~v0.22.5",
       "easysax": "latest",
-      "restler": "latest"
+      "restler": "latest",
+      "underscore.date": "latest",
+      "date-utils": "latest"
    }
 }
              

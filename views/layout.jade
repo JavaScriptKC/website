@@ -1,6 +1,7 @@
 !!! 5
 html(lang="en")
   title NodeKC - Kansas City's Node.js user group
+  script(src='http://livejs.com/live.js')
 
   script
     var _gaq = _gaq || [];
@@ -20,28 +21,33 @@ html(lang="en")
       h1 NodeKC
 
       ul#panels
-        li.panel
+        li.panel.messages
           h2 Recent Group Messages
           ul
             each item in messages
               li
-                a.message(href=item.guid)#{item.title}
-                p.teaser #{item.desc}
+                a.title(href=item.url)#{item.subject}
+                p.teaser= item.body
+                span.time #{item.timeago}
         li.panel.tweets
           h2 Tweets
-            a(href='http://twitter.com/nodekc') @nodekc
+            a.title(href='http://twitter.com/nodekc')@nodekc
 
-            ul
-              each item in tweets.results
-                li
-                  p.tweet #{item.text}
-                  span #{item.created_at}
-        li.panel
+          ul
+            each item in tweets
+              li
+                a.title(href='http://twitter.com/' + item.created_by) #{item.created_by}
+                a.avatar(href='http://twitter.com/' + item.created_by, target='_blank')
+                  img(src='http://api.twitter.com/1/users/profile_image/' + item.created_by + '.png', title=item.created_by, target='_blank')
+                p.teaser #{item.tweet}
+                span.time #{item.timeago}
+        li.panel.events
           h2 Events
-            ul
-              each item in events
-                li
-                  a(href=item.guid)#{item.title}
-                  p.teaser #{item.desc}
-      p join our 
+          ul
+            each item in events
+              li
+                a.title(href=item.url)#{item.title}
+                p.time.teaser 
+                  != item.when
+      p.join join our 
         a(href='http://groups.google.com/group/kc-nodejs') google group
