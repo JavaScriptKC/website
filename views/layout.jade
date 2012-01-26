@@ -26,15 +26,15 @@ html(lang="en")
   
       ul#panels
         li.panel.messages
-          h2 Recent Group Messages
+          h2 messages
           ul
             each item in messages
               li
                 a.title(href=item.url)#{item.subject}
                 p.teaser= item.body
-                span.time #{item.timeago}
+                .time #{item.timeago}
         li.panel.tweets
-          h2 Tweets
+          h2 tweets
 
           ul
             each item in tweets
@@ -43,12 +43,13 @@ html(lang="en")
                 a.avatar(href='http://twitter.com/' + item.created_by, target='_blank')
                   img(src='http://api.twitter.com/1/users/profile_image/' + item.created_by + '.png', title=item.created_by, target='_blank')
                 p.teaser #{item.tweet}
-                span.time #{item.timeago}
+                .time #{item.timeago}
         li.panel.events
-          h2 Events
+          h2 events
           ul
             each item in events
               li
                 a.title(href=item.url)#{item.title}
-                p.teaser #{item.details}
-                span.time #{item.when}
+                if item.details
+                  p.teaser #{item.details}
+                .time #{item.when}
