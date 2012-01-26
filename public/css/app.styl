@@ -27,7 +27,37 @@ a
         min-width 900px
         background url('images/nodekc-dark.png') no-repeat center center
         text-indent -90000px
-
+form.node-out
+    margin 20px 0 20px 0
+    height 40px
+    position relative
+    text-align center
+    input[type=text]
+        padding 5px 12px
+        margin-right 5px
+        width 220px
+        border-radius(4px)
+    input[type=submit]
+        border-radius(4px)
+        background-color #8BC84B
+        color #363730
+        font-size 14px
+        font-weight bold
+        margin 0 1px
+        padding 6px 12px
+        display inline-block
+        outline none
+        text-align center
+        text-shadow 0 1px 1px rgba(0,0,0,0.3)
+        vertical-align baseline
+        &:hover
+            background-color #73A53E
+    input 
+        margin 0
+        padding 0
+        font-size 100%             
+        border none
+        outline none
 #panels
     list-style-type none
     li.panel
@@ -43,8 +73,7 @@ a
         ul
             background-color #222
             padding 0px 2px 10px 10px
-            margin-left 10px
-            margin-top 5px
+            margin 5px 0 0 10px
             list-style-type none
         h2
             font-size 20px
@@ -62,6 +91,7 @@ a
         .teaser
             font-size 12px
 .tweets 
+    background url('images/tweets.png') no-repeat center center
     li 
         margin-bottom 5px
         p.teaser

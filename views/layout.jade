@@ -19,6 +19,11 @@ html(lang="en")
     #wrapper
       h1 NodeKC
 
+      form(action='http://groups.google.com/group/kc-nodejs/boxsubscribe').node-out
+        input(type='text', name='email', placeholder='nodely@email.com')
+      
+        input(type='submit', value='join nodekc')
+  
       ul#panels
         li.panel.messages
           h2 Recent Group Messages
@@ -47,5 +52,3 @@ html(lang="en")
                 a.title(href=item.url)#{item.title}
                 p.teaser #{item.details}
                 span.time #{item.when}
-      p.join join our 
-        a(href='http://groups.google.com/group/kc-nodejs') google group

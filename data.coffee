@@ -42,7 +42,8 @@ fetchMessages = (cb) ->
     return
   
   rest.get(messageFeed).on('complete', (data) -> 
-    
+    data or= ''
+
     messages = for x in parseFeed data 
       { subject: x.title.$t, body: formatContent(x.summary.$t), author:  x.author.name, timeago: timeAgo(x.updated), url: x.link.href } 
     
@@ -59,6 +60,8 @@ fetchTweets = (cb) ->
     return
 
   rest.get(twitterFeed).on('complete', (data) -> 
+    data or= {}
+    data.results or= []
     tweets = for x in data.results
       { timeago: timeAgo(x.created_at), created_at: x.created_at, created_by: x.from_user, tweet: x.text }
     
@@ -74,7 +77,7 @@ fetchEvents = (cb) ->
     return
   
   ical.fromURL eventFeed, {}, (err, calendar) ->
-      console.log calendar
+      calendar or= {}
       events = for k,v of calendar
         {title: v.summary, location: v.location, details: v.description, when: determineDate v.start, v.end }
       console.log events
