@@ -4,7 +4,8 @@ html,
   padding: 0;
 }
 body {
-  background: #46483e url("images/bgpattern.png");
+  background-color: #262721;
+  background: url("images/bgpattern.png");
   height: 100%;
 }
 a {
@@ -20,7 +21,7 @@ a {
   text-align: center;
 }
 #wrapper h1 {
-  margin: 30px 0 10px 0;
+  margin: 20px 0 10px 0;
   height: 200px;
   max-width: 100%;
   min-width: 900px;
@@ -28,14 +29,14 @@ a {
   text-indent: -90000px;
 }
 form.node-out {
-  margin: 20px 0 20px 0;
+  margin: 25px 0 15px 0;
   height: 40px;
   position: relative;
   text-align: center;
 }
 form.node-out input[type=text] {
   padding: 5px 12px;
-  margin-right: 5px;
+  margin-right: 10px;
   width: 240px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -49,7 +50,6 @@ form.node-out input[type=submit] {
   color: #363730;
   font-size: 14px;
   font-weight: bold;
-  margin: 0 1px;
   padding: 6px 12px;
   display: inline-block;
   outline: none;
@@ -70,10 +70,9 @@ form.node-out input {
 }
 #panels li.panel {
   float: left;
-  width: 300px;
+  width: 329px;
   text-align: left;
   margin-top: 15px;
-  margin-left: 10px;
 }
 #panels li.panel li {
   clear: both;
@@ -90,7 +89,7 @@ form.node-out input {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  margin: 5px 0 0 10px;
+  margin: 5px 0 10px 0px;
   list-style-type: none;
 }
 #panels li.panel h2 {
@@ -108,28 +107,23 @@ form.node-out input {
 #panels li.panel .teaser {
   font-size: 12px;
 }
-.tweets {
-  background: url("images/tweets.png") no-repeat center center;
+#panels .tweets {
+  margin: 0 15px;
 }
-.tweets li {
+#panels .tweets li {
   margin-bottom: 5px;
 }
-.tweets li p.teaser {
-  max-height: 60px;
+#panels .tweets li p.teaser {
   word-wrap: break-word;
   overflow: hidden;
 }
-.tweets .avatar {
+#panels .tweets .avatar {
   float: left;
   margin-right: 10px;
 }
-.tweets img {
+#panels .tweets img {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  margin-top: 10px;
-}
-p.join {
-  clear: both;
-  margin-top: 10px;
+  margin-top: 6px;
 }
