@@ -27,7 +27,7 @@ determineDate = (start, end) ->
 createEventUrl = (id) ->
   id = id.split('@')[0]
   id = new Buffer(id + ' e8lg6hesldeld1utui23ebpg7k@google.com').toString('base64').replace('==', '')
-  "https://www.google.com/calendar/b/0/render?eid=#{id}&ctz=America/Chicago&pli=1&sf=true&output=xml"
+  "http://calendar.nodekc.org"
 
 striphtml = (value) ->
   value.replace(/<(?:.|\n)*?>/gm, ' ')
