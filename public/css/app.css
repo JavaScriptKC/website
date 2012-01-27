@@ -16,6 +16,7 @@ a {
 #wrapper {
   height: 100%;
   margin: 0 auto;
+  max-width: 1200px;
   font-weight: bold;
   color: #d2d8ba;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -62,6 +63,7 @@ form.node-out input {
   outline: none;
 }
 #panels {
+  max-width: 1200px;
   list-style-type: none;
 }
 #panels li.panel ul {
@@ -97,7 +99,7 @@ form.node-out input {
   font-size: 0.6em;
 }
 #panels li.tweets {
-  margin: 0 15px;
+  margin: 0 10px;
 }
 #panels li.tweets .title {
   display: inline;
@@ -170,7 +172,7 @@ form.node-out input {
   }
   #panels li.panel {
     float: left;
-    width: 30%;
+    width: 32%;
     text-align: left;
     margin-top: 15px;
   }
