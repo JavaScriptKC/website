@@ -18,7 +18,7 @@ lastTwitterFetchResult = {}
 determineDate = (start, end) ->
   start = moment(start)
   end = moment(end)
-  date = moment(start.native()).add('hours', -6).format('ddd, MMM D')
+  date = moment(new Date(start.native())).add('hours', -6).format('ddd, MMM D')
 
   return date if start.diff(end, 'days') == -1
 
