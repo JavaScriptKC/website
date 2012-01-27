@@ -5,11 +5,13 @@ html, *
     padding 0
 
 body
+    font-size 100%
     background-color #262721
     background url('images/bgpattern.png')
     height 100%
 a
     color #8CC84B
+    text-decoration none
 
 #wrapper
     height 100%        
@@ -35,7 +37,6 @@ form.node-out
         border-radius(4px)
         background-color #8BC84B
         color #363730
-        font-size 14px
         font-weight bold
         padding 6px 12px
         display inline-block
@@ -53,8 +54,6 @@ form.node-out
 #panels
     list-style-type none
     li.panel
-        .title 
-            font-size 14px
         ul
             box-shadow(1px 1px 1px 1px rgba(0, 0, 0, .5))
             background-color #222
@@ -63,19 +62,26 @@ form.node-out
             margin 5px 0 10px 0px
             list-style-type none
         h2
-            font-size 20px
             text-align center
+            font-size 1.2em
+        .title 
+            font-size 1em
+            width 100%
+            display block
+        .teaser
+            border none
+            font-size .75em
         .time
-            font-size 10px
             color #888
             font-style italic
             float right
-            height 14px
-            padding-top 5px
-        .teaser
-            font-size 12px
-    .tweets 
+            clear both
+            font-size .6em
+    li.tweets 
         margin 0 15px
+        .title
+            display inline
+            width auto
         li 
             margin-bottom 5px
             clear both
@@ -89,31 +95,37 @@ form.node-out
             border-radius(3px)
             margin-top 6px
             border none
-@media only screen and (max-width: 480px)
+@media only screen and (max-width: 320px)
     #wrapper 
-        width 350px
+        width 320px
         h1
-            margin-top 5px
+            margin-top 3px
             background url('images/nodekc-dark-small.png') no-repeat center center
-            min-width 350px
-            width 350px
+            width 320px
             height 104px
     form.node-out  
+        margin 0
+        margin-top 5px
+        height 25px 
         input[type=text]
-            width 200px
+            width 150px
+            margin 0 4px 0 0
+            padding 2px
         input[type=submit]
-            padding-left 3px
-            padding-right 3px
+            padding-left 0px
+            padding-right 0px
+            margin-left 0px
+            font-size .85em
     #panels
         li.panel 
             text-align left
-            margin 0 
-            margin-top 15px
-            width 350px
-            max-width 350px
+            margin 0
+            margin-left 4px 
+            margin-top 8px
+            width 310px 
             float none
             clear both
-@media only screen and (min-width: 481px)
+@media only screen and (min-width: 321px)
     #wrapper
         width 95%
 

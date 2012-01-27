@@ -4,12 +4,14 @@ html,
   padding: 0;
 }
 body {
+  font-size: 100%;
   background-color: #262721;
   background: url("images/bgpattern.png");
   height: 100%;
 }
 a {
   color: #8cc84b;
+  text-decoration: none;
 }
 #wrapper {
   height: 100%;
@@ -43,7 +45,6 @@ form.node-out input[type=submit] {
   border-radius: 4px;
   background-color: #8bc84b;
   color: #363730;
-  font-size: 14px;
   font-weight: bold;
   padding: 6px 12px;
   display: inline-block;
@@ -63,9 +64,6 @@ form.node-out input {
 #panels {
   list-style-type: none;
 }
-#panels li.panel .title {
-  font-size: 14px;
-}
 #panels li.panel ul {
   -webkit-box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.50);
   -moz-box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.50);
@@ -79,71 +77,88 @@ form.node-out input {
   list-style-type: none;
 }
 #panels li.panel h2 {
-  font-size: 20px;
   text-align: center;
+  font-size: 1.2em;
+}
+#panels li.panel .title {
+  font-size: 1em;
+  width: 100%;
+  display: block;
+}
+#panels li.panel .teaser {
+  border: none;
+  font-size: 0.75em;
 }
 #panels li.panel .time {
-  font-size: 10px;
   color: #888;
   font-style: italic;
   float: right;
-  height: 14px;
-  padding-top: 5px;
+  clear: both;
+  font-size: 0.6em;
 }
-#panels li.panel .teaser {
-  font-size: 12px;
-}
-#panels .tweets {
+#panels li.tweets {
   margin: 0 15px;
 }
-#panels .tweets li {
+#panels li.tweets .title {
+  display: inline;
+  width: auto;
+}
+#panels li.tweets li {
   margin-bottom: 5px;
   clear: both;
 }
-#panels .tweets li p.teaser {
+#panels li.tweets li p.teaser {
   word-wrap: break-word;
   overflow: hidden;
 }
-#panels .tweets .avatar {
+#panels li.tweets .avatar {
   float: left;
   margin-right: 10px;
 }
-#panels .tweets img {
+#panels li.tweets img {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   margin-top: 6px;
   border: none;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 320px) {
   #wrapper {
-    width: 350px;
+    width: 320px;
   }
   #wrapper h1 {
-    margin-top: 5px;
+    margin-top: 3px;
     background: url("images/nodekc-dark-small.png") no-repeat center center;
-    min-width: 350px;
-    width: 350px;
+    width: 320px;
     height: 104px;
   }
+  form.node-out {
+    margin: 0;
+    margin-top: 5px;
+    height: 25px;
+  }
   form.node-out input[type=text] {
-    width: 200px;
+    width: 150px;
+    margin: 0 4px 0 0;
+    padding: 2px;
   }
   form.node-out input[type=submit] {
-    padding-left: 3px;
-    padding-right: 3px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    font-size: 0.85em;
   }
   #panels li.panel {
     text-align: left;
     margin: 0;
-    margin-top: 15px;
-    width: 350px;
-    max-width: 350px;
+    margin-left: 4px;
+    margin-top: 8px;
+    width: 310px;
     float: none;
     clear: both;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 321px) {
   #wrapper {
     width: 95%;
   }

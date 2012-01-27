@@ -1,7 +1,11 @@
 !!! 5
 html(lang="en")
   title NodeKC - Kansas City's Node.js user group
-  
+
+  meta(content='True', name='HandheldFriendly')
+  meta(content='320', name='MobileOptimized')
+  meta(content='width=device-width, target-densitydpi=160dpi, initial-scale=1.0', name='viewport')
+
   script
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-27907751-4']);
@@ -22,7 +26,7 @@ html(lang="en")
       form(action='http://groups.google.com/group/kc-nodejs/boxsubscribe').node-out
         input(type='text', name='email', placeholder='your@email.com')
       
-        input(type='submit', value='join nodekc')
+        input(type='submit', value='join')
   
       ul#panels
         li.panel.events
