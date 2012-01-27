@@ -12,20 +12,15 @@ a {
   color: #8cc84b;
 }
 #wrapper {
-  width: 1024px;
-  margin: 0 auto;
   height: 100%;
+  margin: 0 auto;
   font-weight: bold;
   color: #d2d8ba;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-align: center;
 }
 #wrapper h1 {
-  margin: 20px 0 10px 0;
-  height: 200px;
   max-width: 100%;
-  min-width: 900px;
-  background: url("images/nodekc-dark.png") no-repeat center center;
   text-indent: -90000px;
 }
 form.node-out {
@@ -68,15 +63,6 @@ form.node-out input {
 #panels {
   list-style-type: none;
 }
-#panels li.panel {
-  float: left;
-  width: 329px;
-  text-align: left;
-  margin-top: 15px;
-}
-#panels li.panel li {
-  clear: both;
-}
 #panels li.panel .title {
   font-size: 14px;
 }
@@ -97,7 +83,7 @@ form.node-out input {
   text-align: center;
 }
 #panels li.panel .time {
-  font-size: 11px;
+  font-size: 10px;
   color: #888;
   font-style: italic;
   float: right;
@@ -112,6 +98,7 @@ form.node-out input {
 }
 #panels .tweets li {
   margin-bottom: 5px;
+  clear: both;
 }
 #panels .tweets li p.teaser {
   word-wrap: break-word;
@@ -126,4 +113,53 @@ form.node-out input {
   -moz-border-radius: 3px;
   border-radius: 3px;
   margin-top: 6px;
+  border: none;
+}
+@media only screen and (max-width: 480px) {
+  #wrapper {
+    width: 350px;
+  }
+  #wrapper h1 {
+    margin-top: 5px;
+    background: url("images/nodekc-dark-small.png") no-repeat center center;
+    min-width: 350px;
+    width: 350px;
+    height: 104px;
+  }
+  form.node-out input[type=text] {
+    width: 200px;
+  }
+  form.node-out input[type=submit] {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  #panels li.panel {
+    text-align: left;
+    margin: 0;
+    margin-top: 15px;
+    width: 350px;
+    max-width: 350px;
+    float: none;
+    clear: both;
+  }
+}
+@media only screen and (min-width: 481px) {
+  #wrapper {
+    width: 95%;
+  }
+  #wrapper h1 {
+    margin: 20px 0 10px 0;
+    height: 200px;
+    min-width: 600px;
+    background: url("images/nodekc-dark.png") no-repeat center center;
+  }
+  #panels li.panel {
+    float: left;
+    width: 30%;
+    text-align: left;
+    margin-top: 15px;
+  }
+  #panels li.panel li {
+    clear: both;
+  }
 }

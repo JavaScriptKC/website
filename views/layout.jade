@@ -25,14 +25,15 @@ html(lang="en")
         input(type='submit', value='join nodekc')
   
       ul#panels
-        li.panel.messages
-          h2 messages
+        li.panel.events
+          h2 events
           ul
-            each item in messages
+            each item in events
               li
-                a.title(href=item.url)#{item.subject}
-                p.teaser= item.body
-                .time #{item.timeago}
+                a.title(href=item.url)#{item.title}
+                if item.details
+                  p.teaser #{item.details}
+                .time #{item.when}
         li.panel.tweets
           h2 tweets
 
@@ -44,12 +45,11 @@ html(lang="en")
                   img(src='http://api.twitter.com/1/users/profile_image/' + item.created_by + '.png', title=item.created_by, target='_blank')
                 p.teaser #{item.tweet}
                 .time #{item.timeago}
-        li.panel.events
-          h2 events
+        li.panel.messages
+          h2 messages
           ul
-            each item in events
+            each item in messages
               li
-                a.title(href=item.url)#{item.title}
-                if item.details
-                  p.teaser #{item.details}
-                .time #{item.when}
+                a.title(href=item.url)#{item.subject}
+                p.teaser= item.body
+                .time #{item.timeago}
