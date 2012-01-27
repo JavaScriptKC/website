@@ -22,7 +22,7 @@ determineDate = (start, end) ->
 
   return date if start.diff(end, 'days') == -1
 
-  date + start.add('hours', -6).format(' h:mma CST') + " for " + start.from(end, true)
+  date + start.add('hours', -6).format(' h:mma CST')
 
 createEventUrl = (id) ->
   id = id.split('@')[0]
