@@ -18,11 +18,11 @@ lastTwitterFetchResult = {}
 determineDate = (start, end) ->
   start = moment(start)
   end = moment(end)
-  date = start.add('hours', -6).format('ddd, MMM D')
+  date = start.format('ddd, MMM D')
 
   return date if start.diff(end, 'days') == -1
 
-  date + start.format(' h:mma z') + " for " + start.from(end, true)
+  date + start.add('hours', -6).format(' h:mma CST') + " for " + start.from(end, true)
 
 createEventUrl = (id) ->
   id = id.split('@')[0]
