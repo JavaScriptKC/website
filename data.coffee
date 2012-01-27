@@ -16,15 +16,19 @@ lastEventFetchResult = {}
 lastTwitterFetchResult = {}
 
 determineDate = (start, end) ->
-  start = moment(new Date start)
-  end = moment(new Date end)
+  start = moment(start)
+  end = moment(end)
   date = start.format('dddd, MMM Do')
 
   return date if start.diff(end, 'days') == -1
 
-  date + start.format(' h:mma') + " for " + start.from(end, true)
+  date + start.format(' h:mma z') + " for " + start.from(end, true)
 
-  
+createEventUrl = (id) ->
+  id = id.split('@')[0]
+  id = new Buffer(id + ' e8lg6hesldeld1utui23ebpg7k@google.com').toString('base64').replace('==', '')
+  "https://www.google.com/calendar/b/0/render?eid=#{id}&ctz=America/Chicago&pli=1&sf=true&output=xml"
+
 striphtml = (value) ->
   value.replace(/<(?:.|\n)*?>/gm, ' ')
 
@@ -79,8 +83,7 @@ fetchEvents = (cb) ->
   ical.fromURL eventFeed, {}, (err, calendar) ->
       calendar or= {}
       events = for k,v of calendar
-        {title: v.summary, location: v.location, details: v.description, when: determineDate v.start, v.end }
-      console.log events
+        {title: v.summary, location: v.location, details: v.description, when: determineDate(v.start, v.end), url: createEventUrl v.uid }
       lastEventFetchResult.value = events
       lastEventFetchResult.on = new Date
 
