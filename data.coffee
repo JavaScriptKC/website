@@ -18,16 +18,16 @@ lastTwitterFetchResult = {}
 determineDate = (start, end) ->
   start = moment(start)
   end = moment(end)
-  date = start.format('ddd, MMM D')
+  date = moment(new Date(start.native())).add('hours', -6).format('ddd, MMM D')
 
   return date if start.diff(end, 'days') == -1
 
-  date + start.add('hours', -6).format(' h:mma z') + " for " + start.from(end, true)
+  date + start.add('hours', -6).format(' h:mma CST')
 
 createEventUrl = (id) ->
   id = id.split('@')[0]
   id = new Buffer(id + ' e8lg6hesldeld1utui23ebpg7k@google.com').toString('base64').replace('==', '')
-  "https://www.google.com/calendar/b/0/render?eid=#{id}&ctz=America/Chicago&pli=1&sf=true&output=xml"
+  "http://calendar.nodekc.org"
 
 striphtml = (value) ->
   value.replace(/<(?:.|\n)*?>/gm, ' ')
