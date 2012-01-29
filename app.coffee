@@ -21,7 +21,7 @@ app.set 'views', path.join(__dirname, 'views')
 app.set 'view engine', 'jade'
 
 app.get '/', data.load('tweets', 'messages', 'events'), (req, res) ->
-  res.render 'plug', res.data
+  res.render 'layout', res.data
 
 app.listen port
 
