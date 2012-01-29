@@ -1,59 +1,62 @@
 !!! 5
 html(lang="en")
-  title NodeKC - Kansas City's Node.js user group
+  head
+    title NodeKC - Kansas City's Node.js user group
 
-  meta(content='True', name='HandheldFriendly')
-  meta(content='320', name='MobileOptimized')
-  meta(content='width=device-width, target-densitydpi=160dpi, initial-scale=1.0', name='viewport')
+    meta(content='True', name='HandheldFriendly')
+    meta(content='320', name='MobileOptimized')
+    meta(content='width=device-width, target-densitydpi=160dpi, initial-scale=1.0', name='viewport')
 
-  script
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-27907751-4']);
-    _gaq.push(['_trackPageview']);
+    script
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-27907751-4']);
+      _gaq.push(['_trackPageview']);
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
 
-  link(rel='stylesheet', href='/css/app.css')
+    link(rel='stylesheet', href='/css/app.css')
 
   body
-    #wrapper
-      h1 NodeKC
 
-      form(action='http://groups.google.com/group/kc-nodejs/boxsubscribe').node-out
-        input(type='text', name='email', placeholder='your@email.com')
-      
-        input(type='submit', value='join')
-  
-      ul#panels
-        li.panel.events
-          h2 events
-          ul
-            each item in events
-              li
-                a.title(href=item.url)#{item.title}
-                if item.details
-                  p.teaser #{item.details}
-                .time #{item.when}
-        li.panel.tweets
-          h2 tweets
+    h1 NodeKC
 
-          ul
-            each item in tweets
-              li
-                a.title(href='http://twitter.com/' + item.created_by) #{item.created_by}
-                a.avatar(href='http://twitter.com/' + item.created_by, target='_blank')
-                  img(src='http://api.twitter.com/1/users/profile_image/' + item.created_by + '.png', title=item.created_by, target='_blank')
-                p.teaser #{item.tweet}
-                .time #{item.timeago}
-        li.panel.messages
-          h2 messages
-          ul
-            each item in messages
-              li
-                a.title(href=item.url)#{item.subject}
-                p.teaser= item.body
-                .time #{item.timeago}
+    form(action='http://groups.google.com/group/kc-nodejs/boxsubscribe').join
+      input(type='submit', value='join')
+      label
+        input(type='email', name='email', placeholder='your@email.com')
+
+    .events.section
+      h2 events
+      ul
+        each item in events
+          li
+            a(href=item.url)
+              .time= item.when
+              h3= item.title
+              p= item.details
+
+    .tweets.section
+      h2 tweets
+      ul
+        each item in tweets
+          li
+            a(href='http://twitter.com/' + item.created_by)
+              img(src='http://api.twitter.com/1/users/profile_image/' + item.created_by + '.png', alt=item.created_by)
+              .time #{item.timeago}
+              h3= item.created_by
+              p= item.tweet
+
+
+    .messages.section
+      h2 messages
+      ul
+        each item in messages
+          li
+            a(href=item.url)
+              .time= item.timeago
+              h3= item.subject
+              p= item.body
