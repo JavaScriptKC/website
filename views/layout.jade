@@ -39,6 +39,16 @@ html(lang="en")
               h3= item.title
               p= item.details
 
+    .messages.section
+      h2 messages
+      ul
+        each item in messages
+          li
+            a(href=item.url)
+              .time= item.timeago
+              h3= item.subject
+              p= item.body
+
     .tweets.section
       h2 tweets
       ul
@@ -49,14 +59,3 @@ html(lang="en")
               .time #{item.timeago}
               h3= item.created_by
               p= item.tweet
-
-
-    .messages.section
-      h2 messages
-      ul
-        each item in messages
-          li
-            a(href=item.url)
-              .time= item.timeago
-              h3= item.subject
-              p= item.body

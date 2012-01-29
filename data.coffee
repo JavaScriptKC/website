@@ -9,7 +9,7 @@ parseFeed = (feed) ->
 
 messageFeed = 'http://groups.google.com/group/kc-nodejs/feed/atom_v1_0_topics.xml'
 eventFeed = 'http://www.google.com/calendar/ical/nodekc.org_e8lg6hesldeld1utui23ebpg7k%40group.calendar.google.com/public/basic.ics'
-twitterFeed = 'http://search.twitter.com/search.json?q=%40nodekc'
+twitterFeed = 'http://search.twitter.com/search.json?q=%40nodekc&rpp=5'
 
 lastMessageFetchResult = {}
 lastEventFetchResult = {}
