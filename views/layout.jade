@@ -45,8 +45,9 @@ html(lang="en")
         each item in messages
           li
             a(href=item.url, target='_blank')
-              .time= item.timeago
+              .time= item.timeago 
               h3= item.subject
+              .author by #{item.author}
               p= item.body
 
     .tweets.section
@@ -59,3 +60,5 @@ html(lang="en")
               .time #{item.timeago}
               h3= item.created_by
               p= item.tweet
+        li
+          a.more(href='https://twitter.com/#!/nodekc') more tweets...
