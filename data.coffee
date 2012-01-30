@@ -14,6 +14,9 @@ fetchTweets = cache.for tenMinutes, (cb) ->
 fetchEvents = cache.for tenMinutes, (cb) ->
   Event.load cb
 
+fetchGitEvents = cache.for tenMinutes, (cb) ->
+  GitEvent.load cb
+    
 module.exports = {
   load: (keys...) ->
     return (req, res, next) => 
@@ -33,5 +36,9 @@ module.exports = {
   events: (data, cb) ->
     fetchEvents (events) ->
       data.events = events
+      cb()
+  gitEvents: (data, cb) ->
+    fetchGitEvents (events) ->
+      data.gitEvents = events
       cb()
 }

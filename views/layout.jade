@@ -37,6 +37,14 @@ html(lang="en")
             .time Tue, Jan 31 7:00pm CST
             h3 EVENT: Inaugural meetup
             p We'll discuss the intent of the group and announce the first project.
+      h2 git
+      ul
+        each item in gitEvents
+          li 
+            a(href='#')
+              h3= item.actor
+              each commit in item.commits
+                p= item.message
 
     .messages.section
       h2 messages
