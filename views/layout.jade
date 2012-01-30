@@ -32,12 +32,10 @@ html(lang="en")
     .events.section
       h2 events
       ul
-        each item in events
-          li
-            a(href='http://www.google.com/calendar/feeds/nodekc.org_e8lg6hesldeld1utui23ebpg7k%40group.calendar.google.com/public/basic', target='_blank')
-              .time= item.when
-              h3= item.title
-              p= item.details
+        li
+          .time Tue, Jan 31 7:00pm CST
+          h3 EVENT: Inaugural meetup
+          p We'll discuss the intent of the group and announce the first project.
 
     .messages.section
       h2 messages
