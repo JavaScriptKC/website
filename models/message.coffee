@@ -2,7 +2,7 @@ moment = require 'moment'
 parser = require 'xml2json'
 rest = require 'restler'
 
-messageFeed = 'http://groups.google.com/group/kc-nodejs/feed/atom_v1_0_topics.xml'
+messageFeed = 'http://groups.google.com/group/nodekc/feed/atom_v1_0_topics.xml'
 
 parseFeed = (feed) ->
   JSON.parse(parser.toJson(feed)).feed.entry
