@@ -3,90 +3,44 @@ rest = require 'restler'
 date = require 'date-utils'
 moment = require 'moment'
 ical = require 'ical'
-
-parseFeed = (feed) ->
-  JSON.parse(parser.toJson(feed)).feed.entry
+cache = require './cache'
+Event = require './models/event'
+Tweet = require './models/tweet'
+Message = require './models/message'
 
 messageFeed = 'http://groups.google.com/group/kc-nodejs/feed/atom_v1_0_topics.xml'
 eventFeed = 'http://www.google.com/calendar/ical/nodekc.org_e8lg6hesldeld1utui23ebpg7k%40group.calendar.google.com/public/basic.ics'
 twitterFeed = 'http://search.twitter.com/search.json?q=%40nodekc&rpp=5'
 
-lastMessageFetchResult = {}
-lastEventFetchResult = {}
-lastTwitterFetchResult = {}
+parseFeed = (feed) ->
+  JSON.parse(parser.toJson(feed)).feed.entry
 
-determineDate = (start, end) ->
-  start = moment(start)
-  end = moment(end)
-  date = moment(new Date(start.native())).add('hours', -6).format('ddd, MMM D')
+tenMinutes = 10 * 60 * 1000
 
-  return date if start.diff(end, 'days') == -1
-
-  date + start.add('hours', -6).format(' h:mma CST')
-
-createEventUrl = (id) ->
-  id = id.split('@')[0]
-  id = new Buffer(id + ' e8lg6hesldeld1utui23ebpg7k@google.com').toString('base64').replace('==', '')
-  "http://calendar.nodekc.org"
-
-striphtml = (value) ->
-  value.replace(/<(?:.|\n)*?>/gm, ' ')
-
-timeAgo = (date) ->
-  moment(new Date(date)).fromNow()
-
-formatContent = (content) ->
-  content = striphtml(content).trim()
-  content += '\u2026' if /[\w]$/i.test content 
-  content
-
-fetchMessages = (cb) ->
-  if lastMessageFetchResult.on? and lastMessageFetchResult.on > (new Date).addMinutes(-1)
-    cb lastMessageFetchResult.value
-    return
-  
+fetchMessages = cache.for tenMinutes, (cb) ->
   rest.get(messageFeed).on('complete', (data) -> 
     data or= ''
 
     messages = for x in parseFeed data 
-      { subject: x.title.$t, body: formatContent(x.summary.$t), author:  x.author.name, timeago: timeAgo(x.updated), url: x.link.href } 
-    
-    lastMessageFetchResult.value = messages
-    lastMessageFetchResult.on = new Date
-
+      new Message x
     cb messages
-
     )
 
-fetchTweets = (cb) ->
-  if lastTwitterFetchResult.on? and lastTwitterFetchResult.on > (new Date).addMinutes(-1)
-    cb lastTwitterFetchResult.value
-    return
-
+fetchTweets = cache.for tenMinutes, (cb) ->
   rest.get(twitterFeed).on('complete', (data) -> 
     data or= {}
     data.results or= []
     tweets = for x in data.results
-      { timeago: timeAgo(x.created_at), created_at: x.created_at, created_by: x.from_user, tweet: x.text }
-    
-    lastTwitterFetchResult.value = tweets
-    lastTwitterFetchResult.on = new Date
-     
+      new Tweet x
+        
     cb tweets
   )
 
-fetchEvents = (cb) ->
-  if lastEventFetchResult.on? and lastEventFetchResult.on > (new Date).addMinutes(-1)
-    cb lastEventFetchResult.value
-    return
-  
+fetchEvents = cache.for tenMinutes, (cb) ->
   ical.fromURL eventFeed, {}, (err, calendar) ->
       calendar or= {}
       events = for k,v of calendar
-        {title: v.summary, location: v.location, details: v.description, when: determineDate(v.start, v.end), url: createEventUrl v.uid }
-      lastEventFetchResult.value = events
-      lastEventFetchResult.on = new Date
-
+        new Event v
       cb events  
 
 module.exports = {
@@ -97,8 +51,7 @@ module.exports = {
       keys.forEach (key) =>
         this[key] res.data, (k) ->
           finished.push k
-          next() if finished.length == keys.length
-          
+          next() if finished.length == keys.length  
   messages: (data, cb) ->
     fetchMessages (messages) ->
       data.messages = messages
