@@ -1,6 +1,6 @@
 moment = require 'moment'
-twitterFeed = 'http://search.twitter.com/search.json?q=%40nodekc&rpp=5'
 rest = require 'restler'
+twitterFeed = 'http://search.twitter.com/search.json?q=%40nodekc&rpp=5'
 
 Tweet = (data) ->
   this.created_by = data.from_user
@@ -12,6 +12,7 @@ Tweet.load = (cb) ->
   rest.get(twitterFeed).on('complete', (data) -> 
     data or= {}
     data.results or= []
+    
     tweets = for x in data.results
       new Tweet x
         

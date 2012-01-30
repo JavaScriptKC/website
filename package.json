@@ -9,10 +9,10 @@
       "easysax": "latest",
       "restler": "latest",
       "underscore.date": "latest",
-      "date-utils": "latest",
       "xml2json": "latest",
       "ical": "latest",
-      "moment": "latest"
+      "moment": "latest",
+      "datejs": "latest"
    }
 }
              
