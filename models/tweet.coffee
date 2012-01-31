@@ -7,6 +7,7 @@ Tweet = (data) ->
   this.tweet = data.text
   this.timeago = moment(new Date(data.created_at)).fromNow()
   this.created_at = data.created_at
+  return
 
 Tweet.load = (cb) ->
   rest.get(twitterFeed).on('complete', (data) -> 

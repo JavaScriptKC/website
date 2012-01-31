@@ -22,6 +22,7 @@ Message = (data) ->
   this.timeago = moment(new Date(data.updated)).fromNow()
   this.url = data.link.href
   this.author = data.author.name
+  return
 
 Message.load = (cb) ->
   rest.get(messageFeed).on('complete', (data) -> 

@@ -26,6 +26,7 @@ Event = (data) ->
   this.details = data.description
   this.when = formatDate(data.start, data.end)
   this.url = 'http://calendar.nodekc.org'
+  return
 
 Event.load = (cb) ->
   ical.fromURL eventFeed, {}, (err, calendar) ->
