@@ -33,23 +33,28 @@ html(lang="en")
       h2 events
       ul.container
         li
-          a(href='https://www.google.com/calendar/b/0/embed?src=nodekc.org_e8lg6hesldeld1utui23ebpg7k@group.calendar.google.com&ctz=America/Chicago&gsessionid=RKXEjz6D5m8kzZ0lZunOpQ')
-            .time Tue, Jan 31 7:00pm CST
-            h3 EVENT: Inaugural meetup
-            p We'll discuss the intent of the group and announce the first project.
-
+          .time Tue, Jan 31 7:00pm CST
+          h3 EVENT: Inaugural meetup
+          .subtitle snow & company - 
+            a(href='http://g.co/maps/s9ms6', target='_blank', title='Map to Snow & Company') map
+          p We'll discuss the intent of the group and announce the first project.
+        li.more
+          a(href='https://www.google.com/calendar/b/0/embed?src=nodekc.org_e8lg6hesldeld1utui23ebpg7k@group.calendar.google.com&ctz=America/Chicago&gsessionid=RKXEjz6D5m8kzZ0lZunOpQ', target='_blank') calendar&hellip;
       h2 git
       ul.container
         each item in gitEvents
           li 
-            a(href="http://github.com/" + item.actor, target="_blank")
-              img(src="https://secure.gravatar.com/avatar/" + item.actor_gravatar_id + "?s=140")
-              .time= item.timeago
-              h3= item.actor
-              .subtitle= item.repo
-              each commit in item.commits
-                p= commit.message
-                    
+            .time= item.timeago
+            h3
+              a(href='http://github.com/' + item.actor, target='_blank')
+                img(src='https://secure.gravatar.com/avatar/' + item.actor_gravatar_id + '?s=140')
+                #{item.actor}
+            .subtitle= item.repo
+            each commit in item.commits
+              p= commit.message
+        li.more
+          a(href='https://github.com/nodekc') nodekc on github&hellip;
+                  
     .messages.section
       h2 messages
       ul.container
@@ -60,8 +65,8 @@ html(lang="en")
               h3= item.subject
               .subtitle by #{item.author}
               p= item.body
-        li
-          a.more(href='https://groups.google.com/group/nodekc') google group&hellip;
+        li.more
+          a(href='https://groups.google.com/group/nodekc') google group&hellip;
     .tweets.section
       h2 tweets
       ul.container
@@ -72,5 +77,5 @@ html(lang="en")
               .time #{item.timeago}
               h3= item.created_by
               p= item.tweet
-        li
-          a.more(href='https://twitter.com/#!/nodekc') more tweets&hellip;
+        li.more
+          a(href='https://twitter.com/#!/nodekc') more tweets&hellip;
