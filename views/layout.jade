@@ -42,7 +42,7 @@ html(lang="en")
       ul.container
         each item in gitEvents
           li 
-            a(href=item.actor_url, target="_blank")
+            a(href="http://github.com/" + item.actor, target="_blank")
               img(src="https://secure.gravatar.com/avatar/" + item.actor_gravatar_id + "?s=140")
               .time= item.timeago
               h3= item.actor

@@ -4,7 +4,7 @@ Tweet = require './models/tweet'
 Message = require './models/message'
 GitEvent = require './models/gitevent'
 
-tenMinutes = 0
+tenMinutes = 10 * 60 * 1000
 
 fetchMessages = cache.for tenMinutes, (cb) ->
   Message.load cb
