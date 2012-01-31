@@ -2,8 +2,9 @@ cache = require './cache'
 Event = require './models/event'
 Tweet = require './models/tweet'
 Message = require './models/message'
+GitEvent = require './models/gitevent'
 
-tenMinutes = 10 * 60 * 1000
+tenMinutes = 0
 
 fetchMessages = cache.for tenMinutes, (cb) ->
   Message.load cb
@@ -39,6 +40,7 @@ module.exports = {
       cb()
   gitEvents: (data, cb) ->
     fetchGitEvents (events) ->
+      console.log events
       data.gitEvents = events
       cb()
 }
