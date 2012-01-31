@@ -16,7 +16,7 @@ fetchEvents = cache.for tenMinutes, (cb) ->
   Event.load cb
 
 fetchGitEvents = cache.for tenMinutes, (cb) ->
-  GitEvent.load cb
+  GitEvent.loadPushEvents 10, cb
     
 module.exports = {
   load: (keys...) ->

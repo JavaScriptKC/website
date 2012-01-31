@@ -12,13 +12,13 @@ GitEvent = (data) ->
   this.repo = data.repo.name
   return
 
-GitEvent.load = (cb) ->
+GitEvent.loadPushEvents = (limit, cb) ->
   rest.get(eventFeed).on('complete', (data) ->
     
     filtered = data.filter (x) ->
       x.type == "PushEvent"
 
-    gitEvents = for x in filtered
+    gitEvents = for x in filtered[0...limit]
       new GitEvent x
 
     cb gitEvents
