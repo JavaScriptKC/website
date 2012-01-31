@@ -46,6 +46,7 @@ html(lang="en")
               img(src="https://secure.gravatar.com/avatar/" + item.actor_gravatar_id + "?s=140")
               .time= item.timeago
               h3= item.actor
+              .subtitle= item.repo
               each commit in item.commits
                 p= commit.message
                     
@@ -57,7 +58,7 @@ html(lang="en")
             a(href=item.url, target='_blank')
               .time= item.timeago 
               h3= item.subject
-              .author by #{item.author}
+              .subtitle by #{item.author}
               p= item.body
         li
           a.more(href='https://groups.google.com/group/nodekc') google group&hellip;
