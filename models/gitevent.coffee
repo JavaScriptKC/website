@@ -4,7 +4,6 @@ moment = require 'moment'
 eventFeed = 'https://api.github.com/orgs/nodekc/events'
 
 GitEvent = (data) ->
-  console.log data
   this.actor = data.actor.login
   this.actor_gravatar_id = data.actor.gravatar_id
   this.timeago = moment(new Date(data.created_at)).fromNow()

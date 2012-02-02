@@ -72,10 +72,10 @@ html(lang="en")
       ul.container
         each item in tweets
           li
+            img(src='http://api.twitter.com/1/users/profile_image/' + item.created_by + '.png', alt=item.created_by)
+            .time #{item.timeago}
             a(href='http://twitter.com/' + item.created_by, target='_blank')
-              img(src='http://api.twitter.com/1/users/profile_image/' + item.created_by + '.png', alt=item.created_by)
-              .time #{item.timeago}
               h3= item.created_by
-              p= item.tweet
+            p!= item.tweet
         li.more
           a(href='https://twitter.com/#!/nodekc') more tweets&hellip;
