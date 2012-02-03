@@ -1,6 +1,6 @@
 moment = require 'moment'
 rest = require 'restler'
-twitter = require 'twitter-text'
+twitter = require '../lib/twitter-text'
 twitterFeed = 'http://search.twitter.com/search.json?q=%40nodekc&rpp=5&include_entities=1'
 
 Tweet = (data) ->
