@@ -31,10 +31,17 @@ html(lang="en")
 
     .events.section
       h2 events
-      ul.container
+      ul.container        
+        li
+          .time Wed, Feb 8 7:00pm CST
+          h3 EVENT: Makeup Meetup 
+          .subtitle snow & company - 
+            a(href='http://g.co/maps/s9ms6', target='_blank', title='Map to Snow & Company') map
+          p For those who couldn't make the first meetup. We'll go over the principles of the group, discuss the project we're working on, and write some code.
+
         li
           .time Tue, Jan 31 7:00pm CST
-          h3 EVENT: Inaugural meetup
+          h3.dim EVENT: Inaugural meetup
           .subtitle snow & company - 
             a(href='http://g.co/maps/s9ms6', target='_blank', title='Map to Snow & Company') map
           p We'll discuss the intent of the group and announce the first project.
@@ -50,8 +57,9 @@ html(lang="en")
                 img(src='https://secure.gravatar.com/avatar/' + item.actor_gravatar_id + '?s=140')
                 #{item.actor}
             .subtitle= item.repo
-            each commit in item.commits
-              p= commit.message
+            ul.inset
+              each commit in item.commits
+                li= commit.message
         li.more
           a(href='https://github.com/nodekc') nodekc on github&hellip;
                   
