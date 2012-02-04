@@ -1,18 +1,17 @@
 {
-   "name": "node-kc",
+   "name": "nodekc",
    "version": "0.0.1",
    "dependencies": {
       "express": "~2.5.6",
       "coffee-script": "latest",
       "jade": "~v0.20.0",
       "stylus": "~v0.22.5",
-      "easysax": "latest",
       "restler": "latest",
       "underscore.date": "latest",
-      "xml2json": "latest",
       "ical": "latest",
       "moment": "latest",
-      "datejs": "latest"
+      "datejs": "latest",
+      "feedparser": "0.9.1"   
    }
 }
              

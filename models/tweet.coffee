@@ -1,6 +1,7 @@
 moment = require 'moment'
 rest = require 'restler'
-twitterFeed = 'http://search.twitter.com/search.json?q=%40nodekc&rpp=5'
+
+twitter_feed_url = 'http://search.twitter.com/search.json?q=%40nodekc&rpp=5'
 
 Tweet = (data) ->
   this.created_by = data.from_user
@@ -10,14 +11,14 @@ Tweet = (data) ->
   return
 
 Tweet.load = (cb) ->
-  rest.get(twitterFeed).on('complete', (data) -> 
-    data or= {}
-    data.results or= []
-    
-    tweets = for x in data.results
-      new Tweet x
-        
-    cb tweets
-  )
+  rest.get(twitter_feed_url)
+    .on 'complete', (data) -> 
+      data or= {}
+      data.results or= []
+      
+      tweets = for x in data.results
+        new Tweet x
+          
+      cb tweets
 
 module.exports = Tweet

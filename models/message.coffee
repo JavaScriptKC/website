@@ -1,11 +1,8 @@
 moment = require 'moment'
-parser = require 'xml2json'
 rest = require 'restler'
+FeedParser = require 'feedparser'
 
-messageFeed = 'http://groups.google.com/group/nodekc/feed/atom_v1_0_topics.xml'
-
-parseFeed = (feed) ->
-  JSON.parse(parser.toJson(feed)).feed.entry
+message_feed_url = 'http://groups.google.com/group/nodekc/feed/atom_v1_0_topics.xml'
 
 striphtml = (value) ->
   value.replace(/<(?:.|\n)*?>/gm, ' ')
@@ -16,22 +13,28 @@ formatContent = (content) ->
   content
 
 Message = (data) ->
-  this.subject = data.title.$t
-  this.body = formatContent data.summary.$t
-  this.author = data.author.name
-  this.timeago = moment(new Date(data.updated)).fromNow()
-  this.url = data.link.href
-  this.author = data.author.name
+  this.subject = data.title
+  this.body = formatContent data.description
+  this.timeago = moment(new Date(data.date)).fromNow()
+  this.url = data.link
+  this.author = data.author
   return
 
 Message.load = (cb) ->
-  rest.get(messageFeed).on('complete', (data) -> 
-    data or= ''
+  rest.get(message_feed_url)
+    .on 'complete', (data) -> 
+      parser = new FeedParser()
 
-    messages = for x in parseFeed data 
-      new Message x
-      
-    cb messages
-  )
+      articles = []
+
+      parser.on 'article', (article) ->
+        articles.push(article)
+
+      parser.parseString data 
+
+      messages = for x in articles
+        new Message x
+        
+      cb messages
 
 module.exports = Message

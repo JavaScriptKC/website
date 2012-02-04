@@ -1,10 +1,9 @@
 rest = require 'restler'
 moment = require 'moment'
 
-eventFeed = 'https://api.github.com/orgs/nodekc/events'
+event_feed_url = 'https://api.github.com/orgs/nodekc/events'
 
 GitEvent = (data) ->
-  console.log data
   this.actor = data.actor.login
   this.actor_gravatar_id = data.actor.gravatar_id
   this.timeago = moment(new Date(data.created_at)).fromNow()
@@ -13,15 +12,14 @@ GitEvent = (data) ->
   return
 
 GitEvent.loadPushEvents = (limit, cb) ->
-  rest.get(eventFeed).on('complete', (data) ->
-    
-    filtered = data.filter (x) ->
-      x.type == "PushEvent"
+  rest.get(event_feed_url)
+    .on 'complete', (data) ->  
+      filtered = data.filter (x) ->
+        x.type == "PushEvent"
 
-    gitEvents = for x in filtered[0...limit]
-      new GitEvent x
+      gitEvents = for x in filtered[0...limit]
+        new GitEvent x
 
-    cb gitEvents
-  )
+      cb gitEvents
   
 module.exports = GitEvent

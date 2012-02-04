@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 express = require 'express'
 app = express.createServer()
 port = process.env.PORT || 3000
@@ -22,6 +20,7 @@ app.set 'view engine', 'jade'
 
 app.get '/', data.load('tweets', 'messages', 'events', 'gitEvents'), (req, res) ->
   res.render 'layout', res.data
+
 
 app.listen port
 
