@@ -6,8 +6,7 @@ twitter_feed_url = 'http://search.twitter.com/search.json?q=%40nodekc&rpp=5&incl
 
 Tweet = (data) ->
   this.created_by = data.from_user
-  console.log data
-  this.tweet = twitter.autoLink data.text, urlEntities: data.entities.urls
+  this.tweet = twitter.autoLink data.text, { urlEntities: data.entities.urls, urlClass: 'tweet-url' }
   this.timeago = moment(new Date(data.created_at)).fromNow()
   this.created_at = data.created_at
   return
