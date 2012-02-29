@@ -3,15 +3,15 @@
    "version": "0.0.1",
    "dependencies": {
       "express": "~2.5.6",
-      "coffee-script": "latest",
+      "coffee-script": "v1.2.0",
       "jade": "~v0.20.0",
       "stylus": "~v0.22.5",
-      "restler": "latest",
-      "underscore.date": "latest",
-      "ical": "latest",
-      "moment": "latest",
-      "datejs": "latest",
-      "feedparser": "0.9.1"   
+      "restler": "v0.2.5",
+      "underscore.date": "v0.6.1",
+      "ical": "v0.0.5",
+      "moment": "v1.4.0",
+      "datejs": "v0.0.2",
+      "feedparser": "v0.9.1"   
    }
 }
              
